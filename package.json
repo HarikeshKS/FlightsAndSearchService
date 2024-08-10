@@ -1,0 +1,34 @@
+{
+  "name": "airlinemanagementproject",
+  "version": "1.0.0",
+  "description": "Micro service for handling flight CRUD and search",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarikeshKS/FlightsAndSearchService.git"
+  },
+  "keywords": [
+    "airline",
+    "management",
+    "backend",
+    "api",
+    "nodejs",
+    "express",
+    "microservices",
+    "mvc"
+  ],
+  "author": "Harikesh Kumar Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HarikeshKS/FlightsAndSearchService/issues"
+  },
+  "homepage": "https://github.com/HarikeshKS/FlightsAndSearchService#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+  }
+}
