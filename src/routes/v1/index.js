@@ -10,4 +10,8 @@ router.use("/city", cityApiRoutes);
 const airportApiRoutes = require("./airport-routes");
 router.use("/airport", airportApiRoutes);
 
+//-> flight routes:
+const flightApiRoutes = require("./flight-routes");
+router.use("/flight", flightApiRoutes);
+
 module.exports = router;
