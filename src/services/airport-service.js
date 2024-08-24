@@ -1,51 +1,21 @@
 const { AirportRepository } = require("../repository/index");
-
-class AirportService {
+const CrudService = require("./crud-service");
+class AirportService extends CrudService {
     constructor() {
+        const airportRepository = new AirportRepository();
+        super(airportRepository);
+        
         this.airportRepository = new AirportRepository();
     }
-    async createAirport(data) {
-        try {
-            const airport = await this.airportRepository.createAirport(data);
-            return airport;
-        } catch (error) {
-            console.log("Something went wrong in the service layer!"); // ? temporarily
-            throw { error };
-        }
-    }
-    async deleteAirport(airportId) {
-        try {
-            const response = this.airportRepository.deleteAirport(airportId);
-            return response;
-        } catch (error) {
-            console.log("Something went wrong in the service layer!"); // ? temporarily
-            throw { error };
-        }
-    }
+    // createAirport => create -> handle by crud repo
+    // deleteAirport => delete -> handle by crud repo
+    // updateAirport => update -> handle by crud repo
+    // getAirport => get -> handle by crud repo
 
-    async updateAirport(airportId, data) {
+    // -> Only one Overrided from the crud repo
+    async getAll(filter) {
         try {
-            const airport = await this.airportRepository.updateAirport(airportId, data);
-            return airport;
-        } catch (error) {
-            console.log("Something went wrong in the service layer!"); // ? temporarily
-            throw { error };
-        }
-    }
-
-    async getAirport(airportId) {
-        try {
-            const airport = await this.airportRepository.getAirport(airportId);
-            return airport;
-        } catch (error) {
-            console.log("Something went wrong in the service layer!"); // ? temporarily
-            throw { error };
-        }
-    }
-
-    async getAllAirports(filter) {
-        try {
-            const airports = await this.airportRepository.getAllAirports({
+            const airports = await this.airportRepository.getAll({
                 name: filter.name,
             });
             return airports;
