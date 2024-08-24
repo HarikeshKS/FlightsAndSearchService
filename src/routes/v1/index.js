@@ -14,4 +14,8 @@ router.use("/airport", airportApiRoutes);
 const flightApiRoutes = require("./flight-routes");
 router.use("/flight", flightApiRoutes);
 
+//-> airplane routes:
+const airplaneApiRoutes = require("./airplane-routes");
+router.use("/airplane", airplaneApiRoutes);
+
 module.exports = router;
