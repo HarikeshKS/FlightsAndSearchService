@@ -6,6 +6,6 @@ router.post("/", FlightController.create);
 // router.delete("/:id", FlightController.destroy);
 // router.patch("/:id", FlightController.update);
 // router.get("/:id", FlightController.get);
-// router.get("/", FlightController.getAll)
+router.get("/", FlightController.getAll)
 
 module.exports = router;
