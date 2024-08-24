@@ -6,10 +6,7 @@ class FlightRepository extends CrudRepository {
     constructor() {
         super(Flight);
     }
-    // createFlight => create -> handle by crud repo
-    // deleteFlight => delete -> handle by crud repo
-    // updateFlight => update -> handle by crud repo
-    // getFlight => get -> handle by crud repo
+
     // => Filter for flight search
     #createFilter(data) {
         let filter = {};
