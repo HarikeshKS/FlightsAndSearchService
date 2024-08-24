@@ -1,13 +1,18 @@
 const { FlightRepository, AirplaneRepository } = require("../repository/index");
 const { compareDateTime } = require("../utils/helper");
 
-class FlightService {
+const CrudService = require("./crud-service");
+class FlightService extends CrudService {
     constructor() {
+        const flightRepository = new FlightRepository();
+        super(flightRepository);
+
         this.flightRepository = new FlightRepository();
         this.airplaneRepository = new AirplaneRepository();
     }
 
-    async createFlight(data) {
+    // -> Overriden the crud 
+    async create(data) {
         try {
             if (compareDateTime(data.arrivalTime, data.departureTime)) {
                 throw {
@@ -17,7 +22,7 @@ class FlightService {
             const airplane = await this.airplaneRepository.getAirplane(
                 data.airplaneId
             );
-
+            
             const flight = await this.flightRepository.createFlight({
                 ...data,
                 totalSeats: airplane.capacity,
@@ -28,10 +33,11 @@ class FlightService {
             throw { error };
         }
     }
-
-    async getAllFlights(data) {
+    
+    // -> Overriden the crud 
+    async getAll(data) {
         try {
-            const flights = await this.flightRepository.getAllFlights(data);
+            const flights = await this.flightRepository.getAll(data);
             return flights;
         } catch (error) {
             console.log("Something went wrong in the service layer!"); // ? temporarily
