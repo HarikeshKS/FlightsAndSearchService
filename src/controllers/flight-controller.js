@@ -1,12 +1,22 @@
 const { FlightService } = require("../services/index");
-
+const { SuccessCodes, ServerErrorCodes } = require("../utils/status-codes");
 const flightService = new FlightService();
 
 // POST : flight
 const create = async (req, res) => {
     try {
-        const response = await flightService.create(req.body);
-        return res.status(200).json({
+        // ! Good Practice is to destructure the req.body for the required data
+        const flightRequestData = {
+            flightNumber: req.body.flightNumber,
+            airplaneId: req.body.airplaneId,
+            departureAirportId: req.body.departureAirportId,
+            arrivalAirportId: req.body.arrivalAirportId,
+            arrivalTime: req.body.arrivalTime,
+            departureTime: req.body.departureTime,
+            price: req.body.price,
+        };
+        const response = await flightService.create(flightRequestData);
+        return res.status(SuccessCodes.CREATED).json({
             data: response,
             success: true,
             message: "Successfully created a flight",
@@ -14,7 +24,7 @@ const create = async (req, res) => {
         });
     } catch (error) {
         console.log(error);
-        return res.status(500).json({
+        return res.status(ServerErrorCodes.INTERNAL_SERVER_ERROR).json({
             data: {},
             success: false,
             message: "Unable to create a flight",

@@ -19,11 +19,11 @@ class FlightService extends CrudService {
                     error: "Arrival date-time cannot be less than departure date-time.",
                 };
             }
-            const airplane = await this.airplaneRepository.getAirplane(
+            const airplane = await this.airplaneRepository.get(
                 data.airplaneId
             );
             
-            const flight = await this.flightRepository.createFlight({
+            const flight = await this.flightRepository.create({
                 ...data,
                 totalSeats: airplane.capacity,
             });
