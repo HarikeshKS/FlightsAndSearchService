@@ -8,14 +8,14 @@ router.use("/city", cityApiRoutes);
 
 //-> airport routes:
 const airportApiRoutes = require("./airport-routes");
-router.use("/airport", airportApiRoutes);
+router.use("/airports", airportApiRoutes);
 
 //-> flight routes:
 const flightApiRoutes = require("./flight-routes");
-router.use("/flight", flightApiRoutes);
+router.use("/flights", flightApiRoutes);
 
 //-> airplane routes:
 const airplaneApiRoutes = require("./airplane-routes");
-router.use("/airplane", airplaneApiRoutes);
+router.use("/airplanes", airplaneApiRoutes);
 
 module.exports = router;
