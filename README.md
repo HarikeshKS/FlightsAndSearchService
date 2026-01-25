@@ -86,5 +86,3 @@ Refer to the route files in [src/routes/v1](src/routes/v1) for the full HTTP sur
 - Open issues and pull requests for improvements. Keep changes focused and add migration files for schema updates.
 
 ---
-
-If you want, I can add a small example request collection or expand the API docs with request/response examples.
